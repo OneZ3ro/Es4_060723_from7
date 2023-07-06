@@ -27,7 +27,25 @@ const giveMeRandomID = function () {
   return arr_fin;
 };
 
-//______________________________________________________________________________________________________________________________
+// funzione utile per esercizio (extra) 2-3
+const every_price_log = function () {
+  const arr_all_price = [];
+  for (let i = 0; i < shoppingCart.length; i++) {
+    arr_all_price.push(shoppingCart[i].price);
+  }
+  return console.log("Array articolo prezzi.\n", arr_all_price);
+};
+
+// funzione utile per esercizio (extra) 4
+const every_price_arr = function () {
+  const arr_all_price = [];
+  for (let i = 0; i < shoppingCart.length; i++) {
+    arr_all_price.push(shoppingCart[i].price);
+  }
+  return arr_all_price;
+};
+
+// ______________________________________________________________________________________________________________________________
 
 /* EXTRA 1
  Scrivi una funzione chiamata "checkArray" che riceve un array di numeri casuali (creati con la funzione "giveMeRandom") e per ogni elemento stampa in console se il suo valore è maggiore di 5 o no.
@@ -36,7 +54,7 @@ const giveMeRandomID = function () {
 
 const checkArray = function () {
   const arr_random_num = giveMeRandom(10);
-  console.log("Esercizio 1 EXTRA.", arr_random_num);
+  console.log("------ Esercizio 1 EXTRA ------\n", arr_random_num);
   let somma = 0;
 
   for (let i = 0; i < arr_random_num.length; i++) {
@@ -119,58 +137,56 @@ const shoppingCart = [
 // };
 // console.log(`Il prezzo totale del carrello è: ${shoppingCartTotal()}€`);
 
-// Metodo dinamico
-const client_shoppingCartTotal = function () {
-  const arr_price = [];
-  const arr_yes_no = [];
-  const arr_how_many = [];
-  const arr_fin_price = [];
-  let total_price = 0;
-  let yes_no = "";
-  let how_many = null;
+// Metodo dinamico -------------------- TOGLI IL COMMENTO A PARTIRE DA QUA SOTTO FINO A //_____ ------------------------------
 
-  //Chiedo cosa vuole comprare e quanti ne vuole
-  for (let i = 0; i < shoppingCart.length; i++) {
-    yes_no = prompt(
-      `Vuoi comprare ${shoppingCart[i].nome} al prezzo di ${shoppingCart[i].price}€? Si o no?`
-    ).toLocaleLowerCase();
-    arr_yes_no.push(yes_no);
-    if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
-      how_many = prompt(
-        `Quanti ne vuoi comprare? (${shoppingCart[i].quantity} max)`
-      );
-      arr_how_many.push(how_many);
-      arr_price.push(shoppingCart[i].price);
-    }
-  }
+// const client_shoppingCartTotal = function () {
+// console.log("------ Esercizio 2 e 3 EXTRA ------");
+//   const arr_price = [];
+//   const arr_yes_no = [];
+//   const arr_how_many = [];
+//   const arr_fin_price = [];
+//   let total_price = 0;
+//   let yes_no = "";
+//   let how_many = null;
 
-  //   per controllo
-  //   const arr_all_price = [];
-  //   for (let i = 0; i < shoppingCart.length; i++) {
-  //     arr_all_price.push(shoppingCart[i].price);
-  //   }
-  //   console.log("Array prezzi prodotti", arr_all_price);
-  //   console.log("Array si o no", arr_yes_no);
-  //   console.log("Array prezzi prodotti selezionati", arr_price);
-  //   console.log("Array quantità di prodotto", arr_how_many);
+//   //Chiedo cosa vuole comprare e quanti ne vuole
+//   for (let i = 0; i < shoppingCart.length; i++) {
+//     yes_no = prompt(
+//       `Vuoi comprare ${shoppingCart[i].nome} al prezzo di ${shoppingCart[i].price}€? Si o no?`
+//     ).toLocaleLowerCase();
+//     arr_yes_no.push(yes_no);
+//     if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
+//       how_many = prompt(
+//         `Quanti ne vuoi comprare? (${shoppingCart[i].quantity} max)`
+//       );
+//       arr_how_many.push(how_many);
+//       arr_price.push(shoppingCart[i].price);
+//     }
+//   }
 
-  //   calcolo il prezzo totale per ogni elemento
-  for (let i = 0; i < arr_price.length; i++) {
-    total_price = (total_price + arr_price[i]) * arr_how_many[i];
-    arr_fin_price.push(total_price);
-    total_price = 0;
-  }
+//   //   per controllo
+//   every_price_log();
+//   console.log("Array si o no", arr_yes_no);
+//   console.log("Array prezzi prodotti selezionati", arr_price);
+//   console.log("Array quantità di prodotto", arr_how_many);
 
-  //   calcolo il prezzo finale
-  for (let i = 0; i < arr_fin_price.length; i++) {
-    total_price = total_price + arr_fin_price[i];
-  }
+//   //   calcolo il prezzo totale per ogni elemento
+//   for (let i = 0; i < arr_price.length; i++) {
+//     total_price = (total_price + arr_price[i]) * arr_how_many[i];
+//     arr_fin_price.push(total_price);
+//     total_price = 0;
+//   }
 
-  //   console.log("Array prodotti prezzo finale", arr_fin_price);
+//   //   calcolo il prezzo finale
+//   for (let i = 0; i < arr_fin_price.length; i++) {
+//     total_price = total_price + arr_fin_price[i];
+//   }
 
-  return total_price.toFixed(2);
-};
-console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`);
+//   //   console.log("Array prodotti prezzo finale", arr_fin_price);
+
+//   return total_price.toFixed(2);
+// };
+// console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`);
 
 //______________________________________________________________________________________________________________________________
 
@@ -179,7 +195,12 @@ console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`
  Crea una funzione chiamata "maxShoppingCart" che riceve l'array "shoppingCart" e ritorna l'oggetto più costoso in esso contenuto.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const maxShoppingCart = function () {
+  console.log("------ Esercizio 4 EXTRA ------");
+  return Math.max(...every_price_arr());
+};
+console.log(`Il prezzo più alto è: ${maxShoppingCart()}€`);
+// console.log(`Il prezzo più alto del tuo carello è ${maxShoppingCart()}€`);
 
 //______________________________________________________________________________________________________________________________
 
