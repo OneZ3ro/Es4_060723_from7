@@ -138,8 +138,10 @@ console.log("Esercizio 7. EPICODE -->", reverseString("EPICODE"));
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
+//spezzo la stringa in caratteri, aggiungo uno spazio all'inizio. Nel for cambio ogni parola dopo lo spazio in upperCase. infine tolgo lo spazio che ho messo all'inizio e ritorno l'array finale (arrfin)
 const upperFirst = function (str) {
   let arr = str.split("");
+  let arrfin = [];
   arr.splice(0, 0, " ");
 
   for (i = 0; i < arr.length; i++) {
@@ -147,9 +149,9 @@ const upperFirst = function (str) {
       arr[i + 1] = arr[i + 1].toUpperCase();
     }
   }
-
-  arr = arr.join("");
-  return arr;
+  arrfin = arr.slice(1);
+  arrfin = arrfin.join("");
+  return arrfin;
 };
 console.log(
   "Esercizio 8. Ogni prima lettera maiuscola:\n",
@@ -159,11 +161,24 @@ console.log(
 //______________________________________________________________________________________________________________________________
 
 /* ESERCIZIO 9
- Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
- della stringa originale.
+ Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere della stringa originale.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const cutString = function (str) {
+  let arr = str.split("");
+  let x = [];
+  let arrfin = [];
+  x = arr.slice(1);
+  arrfin = x.slice(0, -1);
+
+  arrfin = arrfin.join("");
+  return arrfin;
+  // return arr;
+};
+console.log(
+  "Esercizio 9. Primo e ultimo carattere tolti:\n",
+  cutString("una stringa qualsiasi senza senso")
+);
 
 //______________________________________________________________________________________________________________________________
 
