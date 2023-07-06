@@ -1,10 +1,8 @@
 // Esercizi aggiuntivi (facoltativi) per D4
 
-/* EXTRA 1
- Scrivi una funzione chiamata "checkArray" che riceve un array di numeri casuali (creati con la funzione "giveMeRandom") e per ogni elemento stampa in console se il suo valore è maggiore di 5 o no.
- La funzione deve inoltre ritornare la somma di tutti i valori maggiori di 5.
-*/
+// PARTE FUNZIONI UTILE PER LO SVOLGIMENTO DEI VARI ESERCIZI EXTRA
 
+// funzione utile per esercizio (extra) 1
 const giveMeRandom = function (n) {
   const arr_num = [];
 
@@ -14,6 +12,27 @@ const giveMeRandom = function (n) {
   }
   return arr_num;
 };
+
+// funzione utile per esercizio (extra) 2
+const giveMeRandomID = function () {
+  const n = 10;
+  const arr_num = [];
+
+  for (let i = 0; i < n; i++) {
+    let num = Math.floor(Math.random() * 4);
+    arr_num.push(num);
+  }
+
+  let arr_fin = arr_num.join("");
+  return arr_fin;
+};
+
+//______________________________________________________________________________________________________________________________
+
+/* EXTRA 1
+ Scrivi una funzione chiamata "checkArray" che riceve un array di numeri casuali (creati con la funzione "giveMeRandom") e per ogni elemento stampa in console se il suo valore è maggiore di 5 o no.
+ La funzione deve inoltre ritornare la somma di tutti i valori maggiori di 5.
+*/
 
 const checkArray = function () {
   const arr_random_num = giveMeRandom(10);
@@ -33,12 +52,101 @@ const checkArray = function () {
 
 console.log("La somma dei numeri maggiori di 5 è:", checkArray());
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 2
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio (tenendo conto delle quantità di ogni oggetto).
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const shoppingCart = [
+  {
+    price: 23.5,
+    nome: "Lampada",
+    id: giveMeRandomID(),
+    quantity: 15,
+  },
+  {
+    price: 9.17,
+    nome: "Cuscino",
+    id: giveMeRandomID(),
+    quantity: 30,
+  },
+  {
+    price: 45,
+    nome: "Figure John Wick",
+    id: giveMeRandomID(),
+    quantity: 5,
+  },
+  {
+    price: 35,
+    nome: "Mistery box",
+    id: giveMeRandomID(),
+    quantity: 10,
+  },
+  {
+    price: 649.99,
+    nome: "PlayStation-7",
+    id: giveMeRandomID(),
+    quantity: 1,
+  },
+  {
+    price: 1899.99,
+    nome: "iPhone-XX",
+    id: giveMeRandomID(),
+    quantity: 3,
+  },
+];
+
+// Metodo stazionario
+// const shoppingCartTotal = function () {
+//   const arr_price = [];
+//   let total_price = 0;
+
+//   for (let i = 0; i < shoppingCart.length; i++) {
+//     arr_price.push(shoppingCart[i].price);
+//     total_price = total_price + shoppingCart[i].price;
+//   }
+//   //   console.log(arr_price);
+//   return total_price;
+// };
+// console.log(`Il prezzo totale del carrello è: ${shoppingCartTotal()}€`);
+
+// Metodo dinamico
+const client_shoppingCartTotal = function () {
+  const arr_yes_no = [];
+  const arr_price = [];
+  let total_price = 0;
+  let yes_no = "";
+
+  for (let i = 0; i < shoppingCart.length; i++) {
+    yes_no = prompt(
+      `Vuoi comprare ${shoppingCart[i].name} al prezzo di ${shoppingCart[i].price}€? Si o no?`
+    ).toLocaleLowerCase();
+    arr_yes_no.push(yes_no);
+  }
+
+  //   per controllo
+  //   const arr_all_price = [];
+  //   for (let i = 0; i < shoppingCart.length; i++) {
+  //     arr_all_price.push(shoppingCart[i].price);
+  //   }
+  //   console.log(arr_all_price);
+  //   console.log(arr_yes_no);
+
+  for (let i = 0; i < arr_yes_no.length; i++) {
+    if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
+      arr_price.push(shoppingCart[i].price);
+      total_price = total_price + shoppingCart[i].price;
+    }
+  }
+
+  //   console.log(arr_price);
+  return total_price;
+};
+console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`);
+
+//______________________________________________________________________________________________________________________________
 
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
