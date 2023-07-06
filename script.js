@@ -139,7 +139,7 @@ console.log("Esercizio 7. EPICODE -->", reverseString("EPICODE"));
 */
 
 const upperFirst = function (str) {
-  let arr = Array.from(str.split(""));
+  let arr = str.split("");
   arr.splice(0, 0, " ");
 
   for (i = 0; i < arr.length; i++) {
