@@ -121,7 +121,7 @@ const client_shoppingCartTotal = function () {
 
   for (let i = 0; i < shoppingCart.length; i++) {
     yes_no = prompt(
-      `Vuoi comprare ${shoppingCart[i].name} al prezzo di ${shoppingCart[i].price}€? Si o no?`
+      `Vuoi comprare ${shoppingCart[i].nome} al prezzo di ${shoppingCart[i].price}€? Si o no?`
     ).toLocaleLowerCase();
     arr_yes_no.push(yes_no);
   }
@@ -155,12 +155,16 @@ console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 4
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "maxShoppingCart" che riceve l'array "shoppingCart" e ritorna l'oggetto più costoso in esso contenuto.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+//______________________________________________________________________________________________________________________________
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -169,6 +173,8 @@ console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 6
  Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.
  La funzione è composta da un ciclo che stampa un numero casuale tra 0 e 9 finchè il numero casuale non è maggiore di x per tre volte di fila.
@@ -176,17 +182,23 @@ console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 7
 Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 8
  Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+//______________________________________________________________________________________________________________________________
 
 /* EXTRA 9
  Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
@@ -195,11 +207,15 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+//______________________________________________________________________________________________________________________________
+
 /* EXTRA 10
  Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+//______________________________________________________________________________________________________________________________
 
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
@@ -210,3 +226,5 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+//______________________________________________________________________________________________________________________________
