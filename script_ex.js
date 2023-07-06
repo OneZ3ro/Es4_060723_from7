@@ -209,7 +209,26 @@ console.log(`Il prezzo più alto è: ${maxShoppingCart()}€`);
  Crea una funzione chiamata "latestShoppingCart" che riceve l'array "shoppingCart" e ritorna l'ultimo elemento.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const latestShoppingCart = function () {
+  console.log("------ Esercizio 5 EXTRA ------");
+  const arr_yes_no = [];
+  const arr_nomi_prodotti = [];
+  let yes_no = "";
+
+  for (let i = 0; i < shoppingCart.length; i++) {
+    yes_no = prompt(
+      `Vuoi comprare ${shoppingCart[i].nome} al prezzo di ${shoppingCart[i].price}€? Si o no?`
+    ).toLocaleLowerCase();
+    arr_yes_no.push(yes_no);
+    if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
+      arr_nomi_prodotti.push(shoppingCart[i].nome);
+    }
+  }
+
+  return arr_nomi_prodotti[arr_nomi_prodotti.length - 1];
+};
+
+console.log(`L'ultimo prodotto da te selezionato è: ${latestShoppingCart()}`);
 
 //______________________________________________________________________________________________________________________________
 
