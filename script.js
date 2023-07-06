@@ -138,7 +138,23 @@ console.log("Esercizio 7. EPICODE -->", reverseString("EPICODE"));
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const upperFirst = function (str) {
+  let arr = Array.from(str.split(""));
+  arr.splice(0, 0, " ");
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === " ") {
+      arr[i + 1] = arr[i + 1].toUpperCase();
+    }
+  }
+
+  arr = arr.join("");
+  return arr;
+};
+console.log(
+  "Esercizio 8. Ogni prima lettera maiuscola:\n",
+  upperFirst("una stringa qualsiasi senza senso")
+);
 
 //______________________________________________________________________________________________________________________________
 
