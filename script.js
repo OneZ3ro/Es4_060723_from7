@@ -144,7 +144,7 @@ const upperFirst = function (str) {
   let arrfin = [];
   arr.splice(0, 0, " ");
 
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === " ") {
       arr[i + 1] = arr[i + 1].toUpperCase();
     }
@@ -186,6 +186,16 @@ console.log(
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const giveMeRandom = function (n) {
+  const arr_num = [];
+
+  for (let i = 0; i < n; i++) {
+    let num = Math.floor(Math.random() * 11);
+    arr_num.push(num);
+  }
+  return arr_num;
+};
+
+console.log("Esercizio 10. Array numeri random", giveMeRandom(20));
 
 //______________________________________________________________________________________________________________________________
