@@ -54,9 +54,16 @@ console.log("La somma dei numeri maggiori di 5 è:", checkArray());
 
 //______________________________________________________________________________________________________________________________
 
+// EXTRA 2 E EXTRA 3 INSIEME
+
 /* EXTRA 2
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio (tenendo conto delle quantità di ogni oggetto).
+*/
+
+/* EXTRA 3
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
 */
 
 const shoppingCart = [
@@ -114,16 +121,27 @@ const shoppingCart = [
 
 // Metodo dinamico
 const client_shoppingCartTotal = function () {
-  const arr_yes_no = [];
   const arr_price = [];
+  const arr_yes_no = [];
+  const arr_how_many = [];
+  const arr_fin_price = [];
   let total_price = 0;
   let yes_no = "";
+  let how_many = null;
 
+  //Chiedo cosa vuole comprare e quanti ne vuole
   for (let i = 0; i < shoppingCart.length; i++) {
     yes_no = prompt(
       `Vuoi comprare ${shoppingCart[i].nome} al prezzo di ${shoppingCart[i].price}€? Si o no?`
     ).toLocaleLowerCase();
     arr_yes_no.push(yes_no);
+    if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
+      how_many = prompt(
+        `Quanti ne vuoi comprare? (${shoppingCart[i].quantity} max)`
+      );
+      arr_how_many.push(how_many);
+      arr_price.push(shoppingCart[i].price);
+    }
   }
 
   //   per controllo
@@ -131,29 +149,28 @@ const client_shoppingCartTotal = function () {
   //   for (let i = 0; i < shoppingCart.length; i++) {
   //     arr_all_price.push(shoppingCart[i].price);
   //   }
-  //   console.log(arr_all_price);
-  //   console.log(arr_yes_no);
+  //   console.log("Array prezzi prodotti", arr_all_price);
+  //   console.log("Array si o no", arr_yes_no);
+  //   console.log("Array prezzi prodotti selezionati", arr_price);
+  //   console.log("Array quantità di prodotto", arr_how_many);
 
-  for (let i = 0; i < arr_yes_no.length; i++) {
-    if (arr_yes_no[i] === "si" || arr_yes_no[i] === "yes") {
-      arr_price.push(shoppingCart[i].price);
-      total_price = total_price + shoppingCart[i].price;
-    }
+  //   calcolo il prezzo totale per ogni elemento
+  for (let i = 0; i < arr_price.length; i++) {
+    total_price = (total_price + arr_price[i]) * arr_how_many[i];
+    arr_fin_price.push(total_price);
+    total_price = 0;
   }
 
-  //   console.log(arr_price);
-  return total_price;
+  //   calcolo il prezzo finale
+  for (let i = 0; i < arr_fin_price.length; i++) {
+    total_price = total_price + arr_fin_price[i];
+  }
+
+  //   console.log("Array prodotti prezzo finale", arr_fin_price);
+
+  return total_price.toFixed(2);
 };
 console.log(`Il prezzo totale del carrello è: ${client_shoppingCartTotal()}€`);
-
-//______________________________________________________________________________________________________________________________
-
-/* EXTRA 3
- Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
- Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
-*/
-
-/* SCRIVI QUI LA TUA RISPOSTA */
 
 //______________________________________________________________________________________________________________________________
 
